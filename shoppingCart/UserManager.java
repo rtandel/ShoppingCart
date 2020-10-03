@@ -5,15 +5,16 @@ package shoppingCart;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class UserManager {
     private String name;
     private int numUsers;
 
-    private List<User> users = new ArrayList<>();
-    private HashMap<String, Order> activeOrders;
+    private final List<User> users = new ArrayList<User>();
+    private HashMap<Integer, Order> activeOrders;
 
-    private static UserManager UserManager = null;
+    private static UserManager userManager = null;
 
     private UserManager() {
     }
@@ -21,7 +22,7 @@ public class UserManager {
     // Singleton is used here to ensure that only one object
     // of UserManager exists in the system
     public static UserManager getInstance() {
-        if (UserManager == null) {
+        if (userManager == null) {
             userManager = new UserManager();
         }
         return userManager;
